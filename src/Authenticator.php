@@ -32,9 +32,9 @@ class Authenticator
      */
     public function getAccessToken($apiKey, $apiSecret, $username, $password)
     {
-        $response = $this->guzzle->request('POST', self::ENDPOINT, [
+        $response = $this->guzzle->createRequest('POST', self::ENDPOINT, [
             'auth' => [$apiKey, $apiSecret],
-            'form_params' => [
+            'body' => [
                 'grant_type' => 'password',
                 'username' => $username,
                 'password' => $password,
